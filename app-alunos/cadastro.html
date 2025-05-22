@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cadastro de Alunos</title>
+
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div id="messageBox" class="message-box"></div>
+
+    <div class="container form-container">
+      <h1>Cadastro de Alunos</h1>
+
+      <form id="studentForm">
+        <div class="form-group">
+          <label for="studentName">Nome do Aluno</label>
+          <input type="text" id="studentName" name="studentName" required />
+        </div>
+
+        <div class="form-group">
+          <label for="studentId">R.A.</label>
+          <input type="text" id="studentId" name="studentId" required />
+        </div>
+
+        <div class="form-group">
+          <label for="studentEmail">E-mail</label>
+          <input type="email" id="studentEmail" name="studentEmail" required />
+        </div>
+
+        <div class="form-group">
+          <label for="studentCourse">Curso</label>
+          <input type="text" id="studentCourse" name="studentCourse" required />
+        </div>
+
+        <button type="submit" id="addStudentButton">Adicionar Aluno</button>
+      </form>
+
+      <p class="back-link"><a href="index.html">Voltar ao Menu Principal</a></p>
+    </div>
+
+    <script>
+      // URL da API PHP no backend.
+      const API_URL = "http://localhost/app-alunos/api.php";
+
+      // Referências aos elementos HTML manipulados pelo script.
+      const studentForm = document.getElementById("studentForm");
+      const messageBox = document.getElementById("messageBox");
+      const addStudentButton = document.getElementById("addStudentButton");
+
+      /**
+       * Exibe uma mensagem de feedback na tela.
+       * @param {string} message - O texto da mensagem a ser exibida.
+       * @param {string} [type='success'] - O tipo da mensagem ('success' ou 'error'), que afeta a cor.
+       */
+      function showMessage(message, type = "success") {
+        messageBox.textContent = message;
+        messageBox.className = "message-box show";
+        messageBox.style.backgroundColor =
+          type === "error" ? "#f44336" : "#4CAF50";
+        // A mensagem desaparece após 3 segundos.
+        setTimeout(() => {
+          messageBox.classList.remove("show");
+        }, 3000);
+      }
+
+      // Adiciona um "ouvinte" ao evento de submissão do formulário.
+      // A função é assíncrona para poder usar 'await' na requisição de rede.
+      studentForm.addEventListener("submit", async (event) => {
+        // Impede o recarregamento padrão da página ao submeter o formulário.
+        event.preventDefault();
+
+        // Coleta e limpa os valores dos campos do formulário.
+        const studentName = document.getElementById("studentName").value.trim();
+        const studentId = document.getElementById("studentId").value.trim();
+        const studentEmail = document
+          .getElementById("studentEmail")
+          .value.trim();
+        const studentCourse = document
+          .getElementById("studentCourse")
+          .value.trim();
+
+        // Validação simples: verifica se todos os campos foram preenchidos.
+        if (!studentName || !studentId || !studentEmail || !studentCourse) {
+          showMessage("Por favor, preencha todos os campos.", "error");
+          return;
+        }
+
+        // Desabilita o botão e muda seu texto para feedback ao usuário.
+        addStudentButton.disabled = true;
+        addStudentButton.textContent = "Adicionando...";
+
+        try {
+          // Envia os dados do aluno para a API usando o método POST.
+          // O corpo da requisição é um JSON.
+          const response = await fetch(API_URL, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+              name: studentName,
+              student_id: studentId,
+              email: studentEmail,
+              course: studentCourse,
+            }),
+          });
+
+          // Converte a resposta da API de JSON para um objeto JavaScript.
+          const result = await response.json();
+
+          // Verifica se a requisição foi bem-sucedida (status HTTP 2xx).
+          if (!response.ok) {
+            // Se não foi bem-sucedida, lança um erro com a mensagem da API.
+            throw new Error(
+              result.message || "Erro desconhecido ao adicionar aluno."
+            );
+          }
+
+          // Exibe mensagem de sucesso e limpa o formulário.
+          showMessage(result.message || "Aluno adicionado com sucesso!");
+          studentForm.reset();
+        } catch (error) {
+          // Captura e trata erros da requisição, exibindo uma mensagem de erro.
+          console.error("Erro ao adicionar aluno:", error);
+          showMessage(
+            error.message || "Erro ao adicionar aluno. Tente novamente.",
+            "error"
+          );
+        } finally {
+          // Este bloco sempre será executado, reabilitando o botão e restaurando seu texto.
+          addStudentButton.disabled = false;
+          addStudentButton.textContent = "Adicionar Aluno";
+        }
+      });
+    </script>
+  </body>
+</html>
