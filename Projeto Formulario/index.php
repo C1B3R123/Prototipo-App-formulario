@@ -1,18 +1,18 @@
 <?php
-$conn = new mysqli("localhost", "root", "", "gestao_alunos"); // O nome do banco de dados mudou para 'gestao_alunos' [cite: 30]
+$conn = new mysqli("localhost", "root", "", "gestao_alunos"); // O nome do banco de dados mudou para 'gestao_alunos'
 
 // Variáveis para armazenar erros
 $errors = [];
 $success_message = "";
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") { // Verifica se o formulário foi submetido via POST [cite: 31]
+if ($_SERVER["REQUEST_METHOD"] == "POST") { // Verifica se o formulário foi submetido via POST 
     $nome = $_POST["nome"];
     $ra = $_POST["ra"]; // Novo campo: RA
     $email = $_POST["email"]; // Novo campo: Email
     $curso = $_POST["curso"]; // Novo campo: Curso
 
     // Validação dos campos
-    if (empty($nome)) $errors['nome'] = "⚠ Nome é obrigatório!"; // Validação para o campo 'nome' [cite: 32]
+    if (empty($nome)) $errors['nome'] = "⚠ Nome é obrigatório!"; // Validação para o campo 'nome' 
     if (empty($ra)) $errors['ra'] = "⚠ R.A. é obrigatório!";
     if (!filter_var($email, FILTER_VALIDATE_EMAIL)) { // Validação de formato de e-mail
         $errors['email'] = "⚠ E-mail inválido!";
@@ -23,21 +23,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") { // Verifica se o formulário foi sub
     if (empty($errors)) {
         try {
             // Ajustar a query SQL para os novos campos
-            $query = "INSERT INTO alunos (nome, ra, email, curso) VALUES ('$nome', '$ra', '$email', '$curso')"; // Insere um novo aluno na tabela 'alunos' [cite: 37]
+            $query = "INSERT INTO alunos (nome, ra, email, curso) VALUES ('$nome', '$ra', '$email', '$curso')"; // Insere um novo aluno na tabela 'alunos'
             $conn->query($query);
-            $success_message = "✅ Aluno cadastrado com sucesso!"; // Mensagem de sucesso [cite: 36]
+            $success_message = "✅ Aluno cadastrado com sucesso!"; // Mensagem de sucesso 
         } catch (mysqli_sql_exception $e) {
             // Verifica se o erro é de entrada duplicada para RA ou E-mail (UNIQUE)
-            if (strpos($e->getMessage(), 'Duplicate entry') !== false) { // Detecta erro de entrada duplicada [cite: 38]
+            if (strpos($e->getMessage(), 'Duplicate entry') !== false) { // Detecta erro de entrada duplicada 
                 if (strpos($e->getMessage(), "'ra'") !== false) {
                     $errors['ra'] = "⚠ Este R.A. já está cadastrado!";
                 } elseif (strpos($e->getMessage(), "'email'") !== false) {
                     $errors['email'] = "⚠ Este E-mail já está cadastrado!";
                 } else {
-                    $errors['global'] = "⚠ Erro ao cadastrar! Tente novamente."; // Erro global [cite: 39]
+                    $errors['global'] = "⚠ Erro ao cadastrar! Tente novamente."; // Erro global 
                 }
             } else {
-                $errors['global'] = "⚠ Erro ao cadastrar! Tente novamente."; // Erro global [cite: 39]
+                $errors['global'] = "⚠ Erro ao cadastrar! Tente novamente."; // Erro global 
             }
         }
     }
@@ -45,6 +45,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") { // Verifica se o formulário foi sub
 ?>
 
 <!DOCTYPE html>
+<!---Felipe Douglas, se você está vendo isso, como o PHP é uma linguagem de programação e de marcação ao mesmo tempo ? --->
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
@@ -56,7 +57,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") { // Verifica se o formulário foi sub
     <h1>Gestão de Alunos</h1>
     <button class="back-button" onclick="window.location.href='consulta.php'">Consultar Alunos</button>
 
-    <div class="container">
+    <div class="container"><!-- Formulário com tratamento básico de dados para o registro de alunos -->
         <h1>Registrar Aluno</h1>
         <form method="POST">
             <?php if (!empty($success_message)): ?>
