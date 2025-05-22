@@ -55,7 +55,7 @@ button {
   cursor: pointer;
   transition: 0.3s;
 }
-
+/*hover significa que quando estou com o mouse encima do objeto, ele tem alguma interação especifica.*/
 button:hover {
   background: #059669;
 }
