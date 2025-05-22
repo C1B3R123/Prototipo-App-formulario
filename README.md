@@ -47,7 +47,7 @@ Para que o projeto funcione corretamente, é necessário criar um banco de dados
 3.  **Inicie o Apache e MySQL:**
     Abra o XAMPP Control Panel e inicie os módulos Apache e MySQL.
 4.  **Acesse no Navegador:**
-    Escreva [local](http://localhost/),Pode-se acessar pelo Admin no na linha Apache
+    Escreva [localhost](http://localhost/) na url do navegador que está usando ou pode-se acessar pelo botão Admin no na linha Apache no XAMPP control
 ## Funcionalidades
 
 * **Cadastro de Alunos:** Adicione novos alunos com nome, CPF, matrícula, endereço e telefone.
@@ -66,3 +66,6 @@ Para que o projeto funcione corretamente, é necessário criar um banco de dados
 * `export_json.php`: Script PHP para exportar dados para JSON.
 * `export_xls.php`: Script PHP para exportar dados para XLS.
 * `styles.css`: Folha de estilos CSS para o design da aplicação.
+
+## Ajuda-me
+Se quiser, Fique avontade em melhorar o projeto e ensinar algo.  
