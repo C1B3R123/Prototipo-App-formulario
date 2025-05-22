@@ -1,0 +1,274 @@
+/* Reset Básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Arial", sans-serif;
+}
+
+body {
+  background: linear-gradient(120deg, #3b82f6, #9333ea);
+  color: #fff;
+  text-align: center;
+  padding: 20px;
+}
+
+/* Estrutura principal */
+.container {
+  max-width: 800px;
+  margin: auto;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  backdrop-filter: blur(5px);
+}
+
+/* Título */
+h1 {
+  font-size: 2em;
+  margin-bottom: 20px;
+}
+
+/* Formulário */
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+input,
+button {
+  width: 80%;
+  max-width: 500px; /* Máximo em telas grandes */
+  padding: 12px;
+  margin: 10px 0;
+  border: none;
+  border-radius: 5px;
+  text-align: center;
+  font-size: 1rem;
+}
+
+/* Botões */
+button {
+  background: #10b981;
+  color: white;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+button:hover {
+  background: #059669;
+}
+
+/* Tabela Responsiva */
+table {
+  width: 90%;
+  max-width: 800px;
+  margin: auto;
+  border-collapse: collapse;
+  margin-top: 20px;
+  background: rgba(255, 255, 255, 0.1);
+  overflow: hidden;
+}
+
+th,
+td {
+  padding: 12px;
+  border: 1px solid #fff;
+  font-size: 1rem;
+}
+
+th {
+  background: #2563eb;
+}
+
+/* Botão de voltar da consulta */
+.back-button {
+  display: block;
+  width: 80%;
+  max-width: 300px;
+  margin: 20px auto;
+  padding: 12px;
+  background: #f59e0b;
+  color: white;
+  font-size: 1rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  text-align: center;
+  transition: 0.3s;
+}
+.back-button:hover {
+  background: #d97706;
+}
+
+/* Botões de exportação */
+.export-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.export-buttons a {
+  text-decoration: none;
+  width: 80%;
+  max-width: 300px;
+  padding: 12px;
+  color: white;
+  background: #f59e0b;
+  margin: 5px;
+  border-radius: 5px;
+  transition: 0.3s;
+}
+
+.export-buttons a:hover {
+  background: #d97706;
+}
+
+/* Indentifica o Erro */
+.error {
+  color: red;
+  font-size: 0.9em;
+  display: block;
+  margin-top: 5px;
+}
+/* Aluno cadastrado*/
+.success {
+  color: rgb(98, 243, 98);
+  font-size: 1.1em;
+  margin-bottom: 15px;
+}
+
+/* Destaca campos com erro */
+.input-error {
+  border: 2px solid red;
+}
+
+footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  color: white;
+  text-align: center;
+  padding: 10px;
+  font-size: 0.9em;
+}
+/* Responsividade */
+
+@media (max-width: 600px) {
+  .container {
+    width: 95%;
+  }
+
+  input,
+  button {
+    width: 100%;
+  }
+
+  table,
+  th,
+  td {
+    font-size: 0.9em;
+  }
+
+  .export-buttons a {
+    width: 100%;
+  }
+}
+/* Botões de ação */
+.action-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+}
+
+/* Botão Adicionar */
+.add-button {
+  display: block;
+  width: 80%;
+  max-width: 300px;
+  margin: 20px auto;
+  padding: 12px;
+  background: #10b981;
+  color: white;
+  font-size: 1rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  text-align: center;
+  transition: 0.3s;
+}
+
+.add-button:hover {
+  background: #059669;
+  transform: scale(1.05);
+}
+
+/* Botão Editar */
+.edit-btn {
+  background: #3b82f6;
+  color: white;
+  padding: 8px 12px;
+  font-size: 0.9em;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.edit-btn:hover {
+  background: #2563eb;
+}
+
+/* Botão Apagar */
+.delete-btn {
+  background: #ef4444;
+  color: white;
+  padding: 8px 12px;
+  font-size: 0.9em;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.delete-btn:hover {
+  background: #dc2626;
+}
+
+/* Campos editáveis */
+td {
+  cursor: pointer;
+}
+
+td:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* Inputs ao editar */
+input {
+  width: 100%;
+  padding: 8px;
+  font-size: 0.9em;
+  border: none;
+  border-radius: 4px;
+  text-align: center;
+}
+
+/* Botão de salvar do editar */
+.save-btn {
+  background-color: #10b981;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  margin-left: 5px;
+  cursor: pointer;
+  border-radius: 3px;
+  font-size: 0.9rem;
+  transition: 0.3s;
+}
+
+.save-btn:hover {
+  background-color: #059669;
+  transform: scale(1.05);
+}
