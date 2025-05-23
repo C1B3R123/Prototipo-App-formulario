@@ -46,6 +46,7 @@ Para que o projeto funcione corretamente, é necessário criar um banco de dados
     Abra o XAMPP Control Panel e inicie os módulos Apache e MySQL.
 4.  **Acesse no Navegador:**
     Escreva [localhost](http://localhost/) na url do navegador que está usando ou pode-se acessar pelo botão Admin no na linha Apache no XAMPP control
+    
 ## Funcionalidades
 
 * **Cadastro de Alunos:** Adicione novos alunos com nome, CPF, matrícula, endereço e telefone.
@@ -66,4 +67,5 @@ Para que o projeto funcione corretamente, é necessário criar um banco de dados
 * `styles.css`: Folha de estilos CSS para o design da aplicação.
 
 ## Ajuda-me
-Se quiser, Fique avontade em melhorar o projeto e ensinar algo.  
+Se quiser, Fique avontade em melhorar o projeto e dar ideias de funcionalidades, além de apontar erros com o ISSUES do Github.
+
