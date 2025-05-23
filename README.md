@@ -15,7 +15,7 @@ Para que o projeto funcione corretamente, é necessário criar um banco de dados
     Crie um novo banco de dados com o nome: `gestao_alunos`
 
 2.  **Crie a Tabela `alunos`:**
-    Dentro do banco de dados `gestao_alunos`, execute o seguinte comando SQL para criar a tabela `alunos`:
+    Antes de fazer os passos de Como executar o projeto, dentro do banco de dados `gestao_alunos`, execute o seguinte comando SQL para criar a tabela `alunos`:
 
     ```sql
     CREATE TABLE alunos (
