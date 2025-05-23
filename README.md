@@ -67,5 +67,5 @@ Para que o projeto funcione corretamente, é necessário criar um banco de dados
 * `styles.css`: Folha de estilos CSS para o design da aplicação.
 
 ## Ajuda-me
-Se quiser, Fique avontade em melhorar o projeto e dar ideias de funcionalidades, além de apontar erros com o ISSUES do Github.
+Se quiser, Fique avontade em melhorar o projeto e dar ideias de funcionalidades, além de apontar erros com o Issues do Github.
 
