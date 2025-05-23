@@ -92,12 +92,12 @@ $result = $conn->query($query); // Executa a consulta [cite: 2]
         // Função para exibir notificações
         function exibirNotificacao(tipo, mensagem) {
             let notificacao = document.createElement("div");
-            notificacao.classList.add("notification", tipo); // Adiciona classes CSS [cite: 12]
-            notificacao.innerText = mensagem; // Define o texto da notificação [cite: 12]
-            document.body.appendChild(notificacao); // Adiciona a notificação ao corpo do documento [cite: 13]
+            notificacao.classList.add("notification", tipo); // Adiciona classes CSS 
+            notificacao.innerText = mensagem; // Define o texto da notificação 
+            document.body.appendChild(notificacao); // Adiciona a notificação ao corpo do documento 
 
-            setTimeout(() => { // Define um temporizador [cite: 14]
-                notificacao.remove(); // Remove a notificação após 3 segundos [cite: 14]
+            setTimeout(() => { // Define um temporizador 
+                notificacao.remove(); // Remove a notificação após 3 segundos 
             }, 3000);
         }
     </script>
