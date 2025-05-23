@@ -1,274 +1,190 @@
 /* Reset Básico */
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: "Arial", sans-serif;
+  margin: 0; /* Remove margens padrão */
+  padding: 0; /* Remove preenchimentos padrão */
+  box-sizing: border-box; /* Mantém o tamanho dos elementos previsível */
+  font-family: "Arial", sans-serif; /* Define a fonte padrão */
 }
 
+/* Estilização do corpo */
 body {
-  background: linear-gradient(120deg, #3b82f6, #9333ea);
-  color: #fff;
-  text-align: center;
-  padding: 20px;
+  background: linear-gradient(120deg, #3b82f6, #9333ea); /* Fundo degradê */
+  color: #fff; /* Cor do texto */
+  text-align: center; /* Centraliza o conteúdo */
+  padding: 20px; /* Espaçamento interno */
 }
 
-/* Estrutura principal */
+/* Container principal */
 .container {
-  max-width: 800px;
-  margin: auto;
-  padding: 20px;
-  background: rgba(255, 255, 255, 0.1);
-  border-radius: 10px;
-  backdrop-filter: blur(5px);
+  max-width: 800px; /* Define largura máxima */
+  margin: auto; /* Centraliza o contêiner */
+  padding: 20px; /* Espaçamento interno */
+  background: rgba(255, 255, 255, 0.1); /* Fundo semi-transparente */
+  border-radius: 10px; /* Bordas arredondadas */
+  backdrop-filter: blur(5px); /* Efeito de desfoque */
 }
 
 /* Título */
 h1 {
-  font-size: 2em;
-  margin-bottom: 20px;
+  font-size: 2em; /* Tamanho grande */
+  margin-bottom: 20px; /* Espaçamento inferior */
 }
 
 /* Formulário */
 form {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  display: flex; /* Usa flexbox */
+  flex-direction: column; /* Direção em coluna */
+  align-items: center; /* Centraliza elementos */
 }
 
+/* Input e Botão */
 input,
 button {
-  width: 80%;
-  max-width: 500px; /* Máximo em telas grandes */
-  padding: 12px;
-  margin: 10px 0;
-  border: none;
-  border-radius: 5px;
-  text-align: center;
-  font-size: 1rem;
+  width: 80%; /* Largura adaptável */
+  max-width: 500px; /* Limita largura máxima */
+  padding: 12px; /* Espaçamento interno */
+  margin: 10px 0; /* Espaçamento vertical */
+  border: none; /* Remove bordas */
+  border-radius: 5px; /* Bordas arredondadas */
+  text-align: center; /* Centraliza texto */
+  font-size: 1rem; /* Tamanho de fonte padrão */
 }
 
-/* Botões */
+/* Botão */
 button {
-  background: #10b981;
-  color: white;
-  cursor: pointer;
-  transition: 0.3s;
+  background: #10b981; /* Cor verde */
+  color: white; /* Texto branco */
+  cursor: pointer; /* Muda o cursor */
+  transition: 0.3s; /* Efeito de transição */
 }
-/*hover significa que quando estou com o mouse encima do objeto, ele tem alguma interação especifica.*/
+
+/* Efeito ao passar o mouse */
 button:hover {
-  background: #059669;
+  background: #059669; /* Cor mais escura */
 }
 
 /* Tabela Responsiva */
 table {
-  width: 90%;
-  max-width: 800px;
-  margin: auto;
-  border-collapse: collapse;
-  margin-top: 20px;
-  background: rgba(255, 255, 255, 0.1);
-  overflow: hidden;
+  width: 90%; /* Ajuste de largura */
+  max-width: 800px; /* Limite de tamanho */
+  margin: auto; /* Centraliza */
+  border-collapse: collapse; /* Remove espaços entre bordas */
+  margin-top: 20px; /* Espaçamento superior */
+  background: rgba(255, 255, 255, 0.1); /* Fundo semi-transparente */
+  overflow: hidden; /* Esconde conteúdos vazados */
 }
 
+/* Células da tabela */
 th,
 td {
-  padding: 12px;
-  border: 1px solid #fff;
-  font-size: 1rem;
+  padding: 12px; /* Espaçamento interno */
+  border: 1px solid #fff; /* Bordas brancas */
+  font-size: 1rem; /* Tamanho padrão */
 }
 
+/* Cabeçalho */
 th {
-  background: #2563eb;
+  background: #2563eb; /* Fundo azul */
 }
 
-/* Botão de voltar da consulta */
+/* Botão voltar */
 .back-button {
-  display: block;
-  width: 80%;
-  max-width: 300px;
-  margin: 20px auto;
-  padding: 12px;
-  background: #f59e0b;
-  color: white;
-  font-size: 1rem;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  text-align: center;
-  transition: 0.3s;
+  display: block; /* Elemento de bloco */
+  width: 80%; /* Ajuste de largura */
+  max-width: 300px; /* Limite de tamanho */
+  margin: 20px auto; /* Centraliza */
+  padding: 12px; /* Espaçamento */
+  background: #f59e0b; /* Fundo laranja */
+  color: white; /* Texto branco */
+  font-size: 1rem; /* Tamanho padrão */
+  border: none; /* Remove bordas */
+  border-radius: 8px; /* Bordas arredondadas */
+  cursor: pointer; /* Muda cursor */
+  text-align: center; /* Centraliza texto */
+  transition: 0.3s; /* Efeito de transição */
 }
+
+/* Efeito ao passar o mouse */
 .back-button:hover {
-  background: #d97706;
+  background: #d97706; /* Cor mais escura */
 }
 
 /* Botões de exportação */
 .export-buttons {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  margin-top: 20px;
+  display: flex; /* Usa flexbox */
+  flex-wrap: wrap; /* Permite quebra de linha */
+  justify-content: center; /* Centraliza */
+  margin-top: 20px; /* Espaçamento superior */
 }
 
+/* Botões de exportação */
 .export-buttons a {
-  text-decoration: none;
-  width: 80%;
-  max-width: 300px;
-  padding: 12px;
-  color: white;
-  background: #f59e0b;
-  margin: 5px;
-  border-radius: 5px;
-  transition: 0.3s;
+  text-decoration: none; /* Remove sublinhado */
+  width: 80%; /* Ajuste de largura */
+  max-width: 300px; /* Limite de tamanho */
+  padding: 12px; /* Espaçamento */
+  color: white; /* Texto branco */
+  background: #f59e0b; /* Fundo laranja */
+  margin: 5px; /* Espaçamento */
+  border-radius: 5px; /* Bordas arredondadas */
+  transition: 0.3s; /* Efeito de transição */
 }
 
+/* Efeito ao passar o mouse */
 .export-buttons a:hover {
-  background: #d97706;
+  background: #d97706; /* Cor mais escura */
 }
 
-/* Indentifica o Erro */
+/* Mensagem de erro */
 .error {
-  color: red;
-  font-size: 0.9em;
-  display: block;
-  margin-top: 5px;
+  color: red; /* Cor vermelha */
+  font-size: 0.9em; /* Tamanho pequeno */
+  display: block; /* Elemento de bloco */
+  margin-top: 5px; /* Espaçamento superior */
 }
-/* Aluno cadastrado*/
+
+/* Mensagem de sucesso */
 .success {
-  color: rgb(98, 243, 98);
-  font-size: 1.1em;
-  margin-bottom: 15px;
+  color: rgb(98, 243, 98); /* Verde claro */
+  font-size: 1.1em; /* Tamanho maior */
+  margin-bottom: 15px; /* Espaçamento inferior */
 }
 
 /* Destaca campos com erro */
 .input-error {
-  border: 2px solid red;
+  border: 2px solid red; /* Borda vermelha */
 }
 
+/* Rodapé */
 footer {
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-  background: rgba(0, 0, 0, 0.8);
-  color: white;
-  text-align: center;
-  padding: 10px;
-  font-size: 0.9em;
+  position: fixed; /* Fixa na parte inferior */
+  bottom: 0; /* Alinha no final */
+  width: 100%; /* Largura total */
+  background: rgba(0, 0, 0, 0.8); /* Fundo escuro */
+  color: white; /* Texto branco */
+  text-align: center; /* Centraliza conteúdo */
+  padding: 10px; /* Espaçamento */
+  font-size: 0.9em; /* Tamanho pequeno */
 }
-/* Responsividade */
 
+/* Responsividade */
 @media (max-width: 600px) {
   .container {
-    width: 95%;
+    width: 95%; /* Ajuste de largura */
   }
 
   input,
   button {
-    width: 100%;
+    width: 100%; /* Ajusta para telas menores */
   }
 
   table,
   th,
   td {
-    font-size: 0.9em;
+    font-size: 0.9em; /* Redução de tamanho */
   }
 
   .export-buttons a {
-    width: 100%;
+    width: 100%; /* Ajuste total */
   }
-}
-/* Botões de ação */
-.action-buttons {
-  display: flex;
-  justify-content: center;
-  gap: 8px;
-}
-
-/* Botão Adicionar */
-.add-button {
-  display: block;
-  width: 80%;
-  max-width: 300px;
-  margin: 20px auto;
-  padding: 12px;
-  background: #10b981;
-  color: white;
-  font-size: 1rem;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  text-align: center;
-  transition: 0.3s;
-}
-
-.add-button:hover {
-  background: #059669;
-  transform: scale(1.05);
-}
-
-/* Botão Editar */
-.edit-btn {
-  background: #3b82f6;
-  color: white;
-  padding: 8px 12px;
-  font-size: 0.9em;
-  border-radius: 5px;
-  text-decoration: none;
-  transition: 0.3s;
-}
-
-.edit-btn:hover {
-  background: #2563eb;
-}
-
-/* Botão Apagar */
-.delete-btn {
-  background: #ef4444;
-  color: white;
-  padding: 8px 12px;
-  font-size: 0.9em;
-  border-radius: 5px;
-  text-decoration: none;
-  transition: 0.3s;
-}
-
-.delete-btn:hover {
-  background: #dc2626;
-}
-
-/* Campos editáveis */
-td {
-  cursor: pointer;
-}
-
-td:hover {
-  background: rgba(255, 255, 255, 0.2);
-}
-
-/* Inputs ao editar */
-input {
-  width: 100%;
-  padding: 8px;
-  font-size: 0.9em;
-  border: none;
-  border-radius: 4px;
-  text-align: center;
-}
-
-/* Botão de salvar do editar */
-.save-btn {
-  background-color: #10b981;
-  color: white;
-  border: none;
-  padding: 5px 10px;
-  margin-left: 5px;
-  cursor: pointer;
-  border-radius: 3px;
-  font-size: 0.9rem;
-  transition: 0.3s;
-}
-
-.save-btn:hover {
-  background-color: #059669;
-  transform: scale(1.05);
 }
