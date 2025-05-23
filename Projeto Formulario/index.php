@@ -45,19 +45,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") { // Verifica se o formulário foi sub
 ?>
 
 <!DOCTYPE html>
-<!---Felipe Douglas, se você está vendo isso, como o PHP é uma linguagem de programação e de marcação ao mesmo tempo ? --->
 <html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registro de Alunos</title>
+    <meta charset="UTF-8"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <title>Registro de Alunos</title> 
     <link rel="stylesheet" href="styles.css">
+    
 </head>
 <body>
     <h1>Gestão de Alunos</h1>
     <button class="back-button" onclick="window.location.href='consulta.php'">Consultar Alunos</button>
-
-    <div class="container"><!-- Formulário com tratamento básico de dados para o registro de alunos -->
+<!-- Formulário de registro de alunos -->
+    <div class="container"> 
         <h1>Registrar Aluno</h1>
         <form method="POST">
             <?php if (!empty($success_message)): ?>
@@ -67,12 +67,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") { // Verifica se o formulário foi sub
                 <div class="error"><?= $errors['global'] ?></div>
             <?php endif; ?>
 
+            <!-- Campo Nome -->
             <input
                 type="text"
                 name="nome"
                 placeholder="Nome do aluno"
                 class="<?= isset($errors['nome']) ? 'input-error' : '' ?>"
-                value="<?= htmlspecialchars($_POST['nome'] ?? '') ?>"> <span class="error"><?= $errors['nome'] ?? '' ?></span> <input
+                value="<?= htmlspecialchars($_POST['nome'] ?? '') ?>">
+            <span class="error"><?= $errors['nome'] ?? '' ?></span>
+
+            <!-- Campo R.A. -->
+            <input
                 type="text"
                 name="ra"
                 placeholder="R.A."
@@ -80,6 +85,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") { // Verifica se o formulário foi sub
                 value="<?= htmlspecialchars($_POST['ra'] ?? '') ?>">
             <span class="error"><?= $errors['ra'] ?? '' ?></span>
 
+            <!-- Campo E-mail -->
             <input
                 type="email"
                 name="email"
@@ -88,6 +94,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") { // Verifica se o formulário foi sub
                 value="<?= htmlspecialchars($_POST['email'] ?? '') ?>">
             <span class="error"><?= $errors['email'] ?? '' ?></span>
 
+            <!-- Campo Curso -->
             <input
                 type="text"
                 name="curso"
@@ -101,5 +108,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") { // Verifica se o formulário foi sub
     </div>
 </body>
 <footer>
-    <p>&copy; <?= date("Y") ?> Quando eu sabo eu sabo</p> </footer>
+<!-- Rodapé com data dinâmica -->
+    <p>&copy; <?= date("Y") ?> Quando eu sabo eu sabo</p> 
+</footer>
 </html>
+
