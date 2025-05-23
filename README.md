@@ -21,20 +21,18 @@ Para que o projeto funcione corretamente, é necessário criar um banco de dados
     CREATE TABLE alunos (
         id INT AUTO_INCREMENT PRIMARY KEY,
         nome VARCHAR(255) NOT NULL,
-        cpf VARCHAR(11) UNIQUE NOT NULL,
-        matricula VARCHAR(50) NOT NULL,
-        endereco TEXT NOT NULL,
-        telefone VARCHAR(11) NOT NULL
+        email CHAR UNIQUE NOT NULL,
+        ra VARCHAR(50) NOT NULL,
     );
     ```
-
+ 
     **Explicação das Colunas:**
     * `id`: Chave primária auto-incrementável para identificar cada aluno de forma única.
     * `nome`: Nome completo do aluno.
-    * `cpf`: CPF do aluno (único para cada registro).
-    * `matricula`: Número de matrícula do aluno.
-    * `endereco`: Endereço completo do aluno.
-    * `telefone`: Telefone de contato do aluno.
+    * `email`: E-mail do aluno (único para cada registro).
+    * `ra`: Número de matrícula do aluno.
+
+   
 
 ## Como Executar o Projeto
 
