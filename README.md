@@ -40,7 +40,7 @@ Para que o projeto funcione corretamente, é necessário criar um banco de dados
 
 1.  **Clone o Repositório:**
     ```bash
-    git clone [https://github.com/C1B3R123/app-alunos.git](https://github.com/C1B3R123/app-alunos.git)
+    git clone https://github.com/C1B3R123/app-alunos.git
     ```
 2.  **Mova para o `htdocs`:**
     Copie a pasta `app-alunos` (ou a pasta do seu projeto, por exemplo, `Projeto Formulario`) para o diretório `htdocs` da sua instalação do XAMPP (ex: `C:\xampp\htdocs\`).
