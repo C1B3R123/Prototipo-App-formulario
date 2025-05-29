@@ -3,6 +3,8 @@
 ## Descrição do Projeto
 Este projeto consiste em um formulário básico desenvolvido em PHP e CSS. Ele permite o cadastro, consulta, edição e exclusão de informações de alunos, armazenando-as em um banco de dados MySQL, utilizando o XAMPP como ambiente de desenvolvimento local.
 
+(lembrando que irá ser mais comentado que o normal para fins educativos.)
+
 ## Pré-requisitos
 * **XAMPP:** Para rodar o ambiente de desenvolvimento local (Apache, MySQL, PHP).
 
