@@ -40,7 +40,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 // Verifica se há uma mensagem de erro na URL (ex: acesso negado)
 if (isset($_GET['error']) && $_GET['error'] === 'access_denied') {
-    $error_message = "Acesso negado. Por favor, faça login com uma conta de administrador.";
+    $error_message = "Acesso negado. Por favor, faça login.";
 }
 ?>
 
