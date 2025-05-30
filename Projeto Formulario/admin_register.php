@@ -4,11 +4,7 @@ require_once 'config.php'; // Inclui o arquivo de configuração e inicia a sess
 $errors = [];
 $success_message = "";
 
-// Para protótipo e facilidade de criação do primeiro admin,
-// esta página permite acesso direto. Em produção, você DEVERIA
-// verificar se o usuário atual é um admin logado aqui!
-// Ex: if (!is_admin()) { redirect_if_not_admin(); }
-// Para este caso, vamos deixar acessível para permitir a criação inicial.
+// Para protótipo e facilidade de criação do primeiro admin
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $username = $_POST['username'] ?? '';
@@ -95,8 +91,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 type="password"
                 name="password"
                 placeholder="Senha"
-                class="<?= isset(isset($errors['password'])) ? 'input-error' : '' ?>"
-                required>
+                class="<?= isset($errors['password']) ? 'input-error' : '' ?>" required>
             <span class="error"><?= $errors['password'] ?? '' ?></span>
 
             <input
