@@ -1,13 +1,18 @@
 <?php
-$conn = new mysqli("localhost", "root", "", "gestao_alunos"); // Conecta ao banco de dados 'gestao_alunos'
+// Arquivo: delete.php (Apenas Admin)
+require_once 'config.php'; // Inclui o arquivo de configuração e inicia a sessão
+redirect_if_not_admin(); // Redireciona se não for Admin
 
-$id = $_GET['id'] ?? null; // Obtém o ID do aluno a ser excluído 
-// Verifica se o ID foi fornecido
-if ($id) { 
-    // Ajusta a query para deletar por ID da tabela 'alunos'
-    $query = "DELETE FROM alunos WHERE id = $id"; // Query para deletar um aluno
-    $conn->query($query); // Executa a query 
+$id = $_GET['id'] ?? null;
 
-header("Location: consulta.php"); // Redireciona para a página de consulta 
+if ($id) {
+    // Prepara a consulta para deletar por ID
+    $stmt = $conn->prepare("DELETE FROM alunos WHERE id = ?");
+    $stmt->bind_param("i", $id); // 'i' indica que id é um inteiro
+    $stmt->execute();
+    $stmt->close();
+}
+
+header("Location: consulta.php");
 exit;
 ?>

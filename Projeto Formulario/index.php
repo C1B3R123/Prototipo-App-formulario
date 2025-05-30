@@ -1,43 +1,43 @@
 <?php
-$conn = new mysqli("localhost", "root", "", "gestao_alunos"); // O nome do banco de dados mudou para 'gestao_alunos'
+// Arquivo: index.php (Página de Cadastro de Alunos - Apenas Admin)
+require_once 'config.php'; // Inclui o arquivo de configuração e inicia a sessão
+redirect_if_not_admin(); // Redireciona se não for Admin
 
-// Variáveis para armazenar erros
 $errors = [];
 $success_message = "";
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") { // Verifica se o formulário foi submetido via POST 
-    $nome = $_POST["nome"];
-    $ra = $_POST["ra"]; // Novo campo: RA
-    $email = $_POST["email"]; // Novo campo: Email
-    $curso = $_POST["curso"]; // Novo campo: Curso
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $nome = $conn->real_escape_string($_POST["nome"] ?? '');
+    $ra = $conn->real_escape_string($_POST["ra"] ?? '');
+    $email = $conn->real_escape_string($_POST["email"] ?? '');
+    $curso = $conn->real_escape_string($_POST["curso"] ?? '');
 
-    // Validação dos campos
-    if (empty($nome)) $errors['nome'] = "⚠ Nome é obrigatório!"; // Validação para o campo 'nome' 
+    // Validação
+    if (empty($nome)) $errors['nome'] = "⚠ Nome é obrigatório!";
     if (empty($ra)) $errors['ra'] = "⚠ R.A. é obrigatório!";
-    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) { // Validação de formato de e-mail
+    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
         $errors['email'] = "⚠ E-mail inválido!";
     }
     if (empty($curso)) $errors['curso'] = "⚠ Curso é obrigatório!";
 
-    // Se não houver erros, cadastrar no banco
     if (empty($errors)) {
         try {
-            // Ajustar a query SQL para os novos campos
-            $query = "INSERT INTO alunos (nome, ra, email, curso) VALUES ('$nome', '$ra', '$email', '$curso')"; // Insere um novo aluno na tabela 'alunos'
+            $query = "INSERT INTO alunos (nome, ra, email, curso) VALUES ('$nome', '$ra', '$email', '$curso')";
             $conn->query($query);
-            $success_message = "✅ Aluno cadastrado com sucesso!"; // Mensagem de sucesso 
+            $success_message = "✅ Aluno cadastrado com sucesso!";
+            // Limpa os campos do formulário após o sucesso
+            $_POST = [];
         } catch (mysqli_sql_exception $e) {
-            // Verifica se o erro é de entrada duplicada para RA ou E-mail (UNIQUE)
-            if (strpos($e->getMessage(), 'Duplicate entry') !== false) { // Detecta erro de entrada duplicada 
+            if (strpos($e->getMessage(), 'Duplicate entry') !== false) {
                 if (strpos($e->getMessage(), "'ra'") !== false) {
                     $errors['ra'] = "⚠ Este R.A. já está cadastrado!";
                 } elseif (strpos($e->getMessage(), "'email'") !== false) {
                     $errors['email'] = "⚠ Este E-mail já está cadastrado!";
                 } else {
-                    $errors['global'] = "⚠ Erro ao cadastrar! Tente novamente."; // Erro global 
+                    $errors['global'] = "⚠ Erro ao cadastrar! Tente novamente.";
                 }
             } else {
-                $errors['global'] = "⚠ Erro ao cadastrar! Tente novamente."; // Erro global 
+                $errors['global'] = "⚠ Erro ao cadastrar! Tente novamente.";
             }
         }
     }
@@ -47,27 +47,28 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") { // Verifica se o formulário foi sub
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <meta charset="UTF-8"> 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
-    <title>Registro de Alunos</title> 
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro de Alunos</title>
     <link rel="stylesheet" href="styles.css">
-    
 </head>
 <body>
     <h1>Gestão de Alunos</h1>
-    <button class="back-button" onclick="window.location.href='consulta.php'">Consultar Alunos</button>
-<!-- Formulário de registro de alunos -->
-    <div class="container"> 
+    <div class="header-buttons">
+        <button class="back-button" onclick="window.location.href='consulta.php'">Consultar Alunos</button>
+        <button class="back-button logout-button" onclick="window.location.href='logout.php'">Sair</button>
+    </div>
+
+    <div class="container">
         <h1>Registrar Aluno</h1>
         <form method="POST">
             <?php if (!empty($success_message)): ?>
-                <div class="success"><?= $success_message ?></div>
+                <div class="success"><?= htmlspecialchars($success_message) ?></div>
             <?php endif; ?>
             <?php if (isset($errors['global'])): ?>
-                <div class="error"><?= $errors['global'] ?></div>
+                <div class="error"><?= htmlspecialchars($errors['global']) ?></div>
             <?php endif; ?>
 
-            <!-- Campo Nome -->
             <input
                 type="text"
                 name="nome"
@@ -76,7 +77,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") { // Verifica se o formulário foi sub
                 value="<?= htmlspecialchars($_POST['nome'] ?? '') ?>">
             <span class="error"><?= $errors['nome'] ?? '' ?></span>
 
-            <!-- Campo R.A. -->
             <input
                 type="text"
                 name="ra"
@@ -85,7 +85,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") { // Verifica se o formulário foi sub
                 value="<?= htmlspecialchars($_POST['ra'] ?? '') ?>">
             <span class="error"><?= $errors['ra'] ?? '' ?></span>
 
-            <!-- Campo E-mail -->
             <input
                 type="email"
                 name="email"
@@ -94,7 +93,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") { // Verifica se o formulário foi sub
                 value="<?= htmlspecialchars($_POST['email'] ?? '') ?>">
             <span class="error"><?= $errors['email'] ?? '' ?></span>
 
-            <!-- Campo Curso -->
             <input
                 type="text"
                 name="curso"
@@ -108,8 +106,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") { // Verifica se o formulário foi sub
     </div>
 </body>
 <footer>
-<!-- Rodapé com data dinâmica -->
-    <p>&copy; <?= date("Y") ?> Quando eu sabo eu sabo</p> 
+    <p>&copy; <?= date("Y") ?> Protótipo</p>
 </footer>
 </html>
-

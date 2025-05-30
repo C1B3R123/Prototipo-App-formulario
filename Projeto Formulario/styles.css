@@ -37,9 +37,10 @@ form {
   align-items: center; /* Centraliza elementos */
 }
 
-/* Input e Botão */
+/* Input, Botão e Select */
 input,
-button {
+button,
+.select-field { /* Adicionado .select-field */
   width: 80%; /* Largura adaptável */
   max-width: 500px; /* Limita largura máxima */
   padding: 12px; /* Espaçamento interno */
@@ -49,6 +50,24 @@ button {
   text-align: center; /* Centraliza texto */
   font-size: 1rem; /* Tamanho de fonte padrão */
 }
+
+/* Estilo específico para o select */
+.select-field {
+    background-color: white; /* Fundo branco para o select */
+    color: #333; /* Cor do texto para o select */
+    appearance: none; /* Remove a seta padrão do select em alguns navegadores */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23000000%22%20d%3D%22M287%2C150.3L15.3%2C284.1c-2.3%2C2.3-5.2%2C3.6-8.5%2C3.6s-6.2-1.3-8.5-3.6c-4.7-4.7-4.7-12.3%2C0-17l126.1-126.1L.3%2C29.2c-4.7-4.7-4.7-12.3%2C0-17s12.3-4.7%2C17%2C0L287%2C133.3C291.7%2C138%2C291.7%2C145.7%2C287%2C150.3z%22%2F%3E%3C%2Fsvg%3E'); /* Seta customizada */
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 12px;
+    padding-right: 30px; /* Espaço para a seta */
+}
+.select-field::-ms-expand {
+    display: none; /* Remove a seta padrão no IE/Edge */
+}
+
 
 /* Botão */
 button {
@@ -62,6 +81,17 @@ button {
 button:hover {
   background: #059669; /* Cor mais escura */
 }
+
+/* Novo botão de Registro */
+.register-button {
+    background: #2563eb; /* Azul */
+    margin-top: 15px; /* Espaçamento superior */
+}
+
+.register-button:hover {
+    background: #1d4ed8; /* Azul mais escuro */
+}
+
 
 /* Tabela Responsiva */
 table {
@@ -87,104 +117,129 @@ th {
   background: #2563eb; /* Fundo azul */
 }
 
-/* Botão voltar */
+/* Botão voltar e Botões de Cabeçalho */
 .back-button {
-  display: block; /* Elemento de bloco */
-  width: 80%; /* Ajuste de largura */
-  max-width: 300px; /* Limite de tamanho */
-  margin: 20px auto; /* Centraliza */
-  padding: 12px; /* Espaçamento */
-  background: #f59e0b; /* Fundo laranja */
-  color: white; /* Texto branco */
-  font-size: 1rem; /* Tamanho padrão */
-  border: none; /* Remove bordas */
-  border-radius: 8px; /* Bordas arredondadas */
-  cursor: pointer; /* Muda cursor */
-  text-align: center; /* Centraliza texto */
-  transition: 0.3s; /* Efeito de transição */
+  display: block;
+  width: 80%;
+  max-width: 300px;
+  margin: 20px auto;
+  padding: 12px;
+  background: #f59e0b;
+  color: white;
+  font-size: 1rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  text-align: center;
+  transition: 0.3s;
 }
+
+/* Header buttons group */
+.header-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 10px; /* Espaçamento entre os botões */
+    flex-wrap: wrap; /* Permite quebra de linha em telas pequenas */
+    margin-bottom: 20px;
+}
+
+/* Botão de Logout */
+.logout-button {
+    background: #ef4444; /* Vermelho */
+}
+
+.logout-button:hover {
+    background: #dc2626; /* Vermelho mais escuro */
+}
+
 
 /* Efeito ao passar o mouse */
 .back-button:hover {
-  background: #d97706; /* Cor mais escura */
+  background: #d97706;
 }
 
 /* Botões de exportação */
 .export-buttons {
-  display: flex; /* Usa flexbox */
-  flex-wrap: wrap; /* Permite quebra de linha */
-  justify-content: center; /* Centraliza */
-  margin-top: 20px; /* Espaçamento superior */
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 20px;
 }
 
 /* Botões de exportação */
 .export-buttons a {
-  text-decoration: none; /* Remove sublinhado */
-  width: 80%; /* Ajuste de largura */
-  max-width: 300px; /* Limite de tamanho */
-  padding: 12px; /* Espaçamento */
-  color: white; /* Texto branco */
-  background: #f59e0b; /* Fundo laranja */
-  margin: 5px; /* Espaçamento */
-  border-radius: 5px; /* Bordas arredondadas */
-  transition: 0.3s; /* Efeito de transição */
+  text-decoration: none;
+  width: 80%;
+  max-width: 300px;
+  padding: 12px;
+  color: white;
+  background: #f59e0b;
+  margin: 5px;
+  border-radius: 5px;
+  transition: 0.3s;
 }
 
 /* Efeito ao passar o mouse */
 .export-buttons a:hover {
-  background: #d97706; /* Cor mais escura */
+  background: #d97706;
 }
 
 /* Mensagem de erro */
 .error {
-  color: red; /* Cor vermelha */
-  font-size: 0.9em; /* Tamanho pequeno */
-  display: block; /* Elemento de bloco */
-  margin-top: 5px; /* Espaçamento superior */
+  color: red;
+  font-size: 0.9em;
+  display: block;
+  margin-top: 5px;
 }
 
 /* Mensagem de sucesso */
 .success {
-  color: rgb(98, 243, 98); /* Verde claro */
-  font-size: 1.1em; /* Tamanho maior */
-  margin-bottom: 15px; /* Espaçamento inferior */
+  color: rgb(98, 243, 98);
+  font-size: 1.1em;
+  margin-bottom: 15px;
 }
 
 /* Destaca campos com erro */
 .input-error {
-  border: 2px solid red; /* Borda vermelha */
+  border: 2px solid red;
 }
 
 /* Rodapé */
 footer {
-  position: fixed; /* Fixa na parte inferior */
-  bottom: 0; /* Alinha no final */
-  width: 100%; /* Largura total */
-  background: rgba(0, 0, 0, 0.8); /* Fundo escuro */
-  color: white; /* Texto branco */
-  text-align: center; /* Centraliza conteúdo */
-  padding: 10px; /* Espaçamento */
-  font-size: 0.9em; /* Tamanho pequeno */
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  color: white;
+  text-align: center;
+  padding: 10px;
+  font-size: 0.9em;
 }
 
 /* Responsividade */
 @media (max-width: 600px) {
   .container {
-    width: 95%; /* Ajuste de largura */
+    width: 95%;
   }
 
   input,
-  button {
-    width: 100%; /* Ajusta para telas menores */
+  button,
+  .select-field { /* Adicionado .select-field */
+    width: 100%;
   }
 
   table,
   th,
   td {
-    font-size: 0.9em; /* Redução de tamanho */
+    font-size: 0.9em;
   }
 
   .export-buttons a {
-    width: 100%; /* Ajuste total */
+    width: 100%;
+  }
+
+  .header-buttons {
+      flex-direction: column;
+      align-items: center;
   }
 }
