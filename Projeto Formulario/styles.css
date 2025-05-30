@@ -92,6 +92,16 @@ button:hover {
     background: #1d4ed8; /* Azul mais escuro */
 }
 
+/* Botão de exclusão (dentro da página de edição) */
+.delete-button {
+    background: #dc2626; /* Vermelho */
+    margin-top: 20px;
+}
+
+.delete-button:hover {
+    background: #b91c1c; /* Vermelho mais escuro */
+}
+
 
 /* Tabela Responsiva */
 table {
@@ -116,6 +126,25 @@ td {
 th {
   background: #2563eb; /* Fundo azul */
 }
+
+/* Linhas clicáveis para admin */
+.clickable-row {
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.clickable-row:hover {
+    background-color: rgba(255, 255, 255, 0.2); /* Fundo levemente mais claro ao passar o mouse */
+}
+
+/* Garante que o botão de apagar não ative o clique da linha */
+.action-buttons.no-click {
+    pointer-events: all; /* Permite o clique nos elementos internos */
+}
+.action-buttons.no-click a {
+    pointer-events: auto; /* Garante que o link seja clicável */
+}
+
 
 /* Botão voltar e Botões de Cabeçalho */
 .back-button {
@@ -214,6 +243,17 @@ footer {
   text-align: center;
   padding: 10px;
   font-size: 0.9em;
+}
+
+/* Novo botão para alternar exibição da tabela */
+.toggle-button {
+    background: #60a5fa; /* Azul claro */
+    margin-top: 15px;
+    max-width: 300px;
+}
+
+.toggle-button:hover {
+    background: #3b82f6; /* Azul claro mais escuro */
 }
 
 /* Responsividade */

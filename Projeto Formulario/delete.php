@@ -1,5 +1,4 @@
 <?php
-// Arquivo: delete.php (Apenas Admin)
 require_once 'config.php'; // Inclui o arquivo de configuração e inicia a sessão
 redirect_if_not_admin(); // Redireciona se não for Admin
 

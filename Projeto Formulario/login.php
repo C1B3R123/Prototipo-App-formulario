@@ -68,6 +68,6 @@ if (isset($_GET['error']) && $_GET['error'] === 'access_denied') {
     </div>
 </body>
 <footer>
-    <p>&copy; <?= date("Y") ?> Protótipo</p>
+    <p>&copy; <?= date("Y") ?> - Protótipo</p>
 </footer>
 </html>

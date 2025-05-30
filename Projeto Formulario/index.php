@@ -1,5 +1,4 @@
 <?php
-// Arquivo: index.php (Página de Cadastro de Alunos - Apenas Admin)
 require_once 'config.php'; // Inclui o arquivo de configuração e inicia a sessão
 redirect_if_not_admin(); // Redireciona se não for Admin
 
@@ -106,6 +105,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     </div>
 </body>
 <footer>
-    <p>&copy; <?= date("Y") ?> Protótipo</p>
+    <p>&copy; <?= date("Y") ?> - Protótipo</p>
 </footer>
 </html>

@@ -1,5 +1,4 @@
 <?php
-//(Arquivo para fins de poupar tempo para cadastrar Admins e Alunos.)
 require_once 'config.php'; // Inclui o arquivo de configuração e inicia a sessão
 
 $errors = [];
@@ -96,7 +95,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 type="password"
                 name="password"
                 placeholder="Senha"
-                class="<?= isset($errors['password']) ? 'input-error' : '' ?>"
+                class="<?= isset(isset($errors['password'])) ? 'input-error' : '' ?>"
                 required>
             <span class="error"><?= $errors['password'] ?? '' ?></span>
 
@@ -120,6 +119,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     </div>
 </body>
 <footer>
-    <p>&copy; <?= date("Y") ?> Protótipo</p>
+    <p>&copy; <?= date("Y") ?> - Protótipo</p>
 </footer>
 </html>

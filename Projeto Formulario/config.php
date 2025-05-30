@@ -1,5 +1,5 @@
 <?php
-// Arquivo: config.php
+// Arquivo de configuração
 
 // Inicia a sessão PHP
 if (session_status() == PHP_SESSION_NONE) {
